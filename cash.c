@@ -5,9 +5,9 @@
 int main(void)
 {
     float money = get_float("Change owed: ");
-   if (money < 0)
+    if (money < 0)
     {
-         money = get_float("Change owed: ");
+        money = get_float("Change owed: ");
     }
     //making sure that the input is not negative
     int coins = round(money * 100);
