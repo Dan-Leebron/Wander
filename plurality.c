@@ -81,16 +81,19 @@ bool vote(string name)
 void print_winner(void)
 {
     int max = 0;
+    int winner = 0;
     for (int a = 0; a < candidate_count - 1; a++)
     {
-        if (candidates[a].votes > candidates[a + 1].votes)
+        if ((candidates[a].votes > candidates[a + 1].votes) && (candidates[a].votes > max))
         {
             max = candidates[a].votes;
+
         }
-        else if (candidates[a].votes == candidates[a + 1].votes)
+        else if ((candidates[a].votes < candidates[a + 1].votes) && (candidates[a + 1].votes > max))
         {
-            max = candidates[a].votes;
+            max = candidates[a + 1].votes;
         }
+
     }
     for (int a = 0; a < candidate_count - 1; a++)
     {
