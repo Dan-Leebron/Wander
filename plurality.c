@@ -92,8 +92,6 @@ void print_winner(void)
         {
             max = candidates[a + 1].votes;
         }
-
-
     }
     for (int a = 0; a < candidate_count; a++)
     {
@@ -102,7 +100,6 @@ void print_winner(void)
             printf("%s\n", candidates[a].name);
         }
     }
-
     return;
 }
 
