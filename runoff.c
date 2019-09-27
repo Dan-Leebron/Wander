@@ -191,9 +191,13 @@ int find_min(void)
             {
                 tracker = candidates[i].votes;
             }
-            if ((candidates[i].votes > candidates[i + 1].votes) && (candidates[i + 1].votes < tracker))
+            else if ((candidates[i].votes > candidates[i + 1].votes) && (candidates[i + 1].votes < tracker))
             {
                 tracker = candidates[i + 1].votes;
+            }
+            else if ((candidates[i].votes == candidates[i + 1].votes) && (candidates[i].votes < tracker))
+            {
+                tracker = candidates[i].votes;
             }
         }
     }
