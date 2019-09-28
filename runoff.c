@@ -183,19 +183,11 @@ bool print_winner(void)
 int find_min(void)
 {
     int tracker = 100;
-    for (int i = 0; i < candidate_count - 1; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
         if (candidates[i].eliminated == false)
         {
-            if ((candidates[i].votes < candidates[i + 1].votes) && (candidates[i].votes < tracker))
-            {
-                tracker = candidates[i].votes;
-            }
-            else if ((candidates[i].votes > candidates[i + 1].votes) && (candidates[i + 1].votes < tracker))
-            {
-                tracker = candidates[i + 1].votes;
-            }
-            else if ((candidates[i].votes == candidates[i + 1].votes) && (candidates[i].votes < tracker))
+            if (candidates[i].votes < tracker)
             {
                 tracker = candidates[i].votes;
             }
