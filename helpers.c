@@ -24,11 +24,13 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
+        //applying the sepia formulas
 
          float newred = round(.393 * image[i][j].rgbtRed + .769 * image[i][j].rgbtGreen + .189 * image[i][j].rgbtBlue);
          float newgreen = round(.349 * image[i][j].rgbtRed + .686 * image[i][j].rgbtGreen + .168 * image[i][j].rgbtBlue);
          float newblue = round(.272 * image[i][j].rgbtRed + .534 * image[i][j].rgbtGreen + .131 * image[i][j].rgbtBlue);
 
+         //rounding if the values are too big
          if (round(newred) > 255)
          {
              newred = 255;
@@ -56,6 +58,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
     for (int i = 0; i < height; i++)
     {
+        //going through half of the photo and flipping pixels with the other half
         for (int j = 0, k = round(width / 2); j < k; j++)
         {
             int tmpred = image[i][j].rgbtRed;
@@ -77,6 +80,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
+    //creating a log of the original values of the photo
     RGBTRIPLE oldimage[height][width];
     for (int i = 0; i < height; i++)
     {
@@ -95,6 +99,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             float newgreen = 0;
             float newblue = 0;
             int size = 0;
+            //checking the 3x3 grid around all pixels to see if they are valid to average
             for (int k = - 1; k < 2; k++)
             {
                 for (int l = -1; l < 2; l++)
@@ -105,7 +110,6 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                         newgreen += oldimage[i + k][j + l].rgbtGreen;
                         newblue += oldimage[i + k][j + l].rgbtBlue;
                         size++;
-
                     }
 
 
