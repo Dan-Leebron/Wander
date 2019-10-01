@@ -85,11 +85,11 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             float newgreen = 0;
             float newblue = 0;
             int size = 0;
-            for (int k = i - 1; k < i + 2; k++)
+            for (int k = i - 1; k <= i + 1; k++)
             {
-                for (int l = j - 1; l < j + 2; l++)
+                for (int l = j - 1; l <= j + 1; l++)
                 {
-                    if (k > -1 && k < height - 1 && l > -1 && l < width - 1)
+                    if ((k > -1) && (k < height - 1) && (l > -1) && (l < width - 1))
                     {
                         newred = newred + image[k][l].rgbtRed;
                         newgreen = newgreen + image[k][l].rgbtGreen;
