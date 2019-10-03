@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
             }
 
         }
-        if (tracker > 0)
+        if ((tracker > 0) && !((buf[0] == 0xff) && (buf[1] == 0xd8) && (buf[2] == 0xff) && ((buf[3] & 0xf0) == 0xe0)) )
         {
             fwrite(buf, sizeof(buf), 1, img);
         }
