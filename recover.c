@@ -28,6 +28,12 @@ int main(int argc, char *argv[])
     while(!feof(file))
     {
         fread(buf,sizeof(buf),1,file);
+        if(feof(file))
+        {
+            fclose(img);
+            fclose(file);
+            return 0;
+        }
         if ((buf[0] == 0xff) && (buf[1] == 0xd8) && (buf[2] == 0xff) && ((buf[3] & 0xf0) == 0xe0))
         {
             if (tracker == 0)
