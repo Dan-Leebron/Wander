@@ -60,10 +60,5 @@ int main(int argc, char *argv[])
     }
     fclose(img);
     fclose(file);
-
-    printf("Done\n");
-
-    printf("%i\n", tracker);
-
     free(buf);
 }
