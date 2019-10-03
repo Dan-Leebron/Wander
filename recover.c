@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-typedef uint8_t  BYTE;
+
 int main(int argc, char *argv[])
 {
-    FILE *img;
+    FILE *img = NULL;
     int tracker = 0;
     uint8_t *buf = malloc(512);
     char filename[8];
@@ -51,7 +51,8 @@ int main(int argc, char *argv[])
             fwrite(buf, sizeof(buf), 1, img);
         }
     }
+    free(buf);
     fclose(img);
     fclose(file);
-    free(buf);
+
 }
