@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
             {
                 sprintf(filename, "%03i.jpg", tracker);
                 img = fopen(filename, "w");
-                fwrite(file, sizeof(buf), 1, img);
+                fwrite(buf, sizeof(buf), 1, img);
                 tracker++;
                 printf("Yes, %i\n", tracker);
             }
@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
                 fclose(img);
                 sprintf(filename, "%03i.jpg", tracker);
                 img = fopen(filename, "w");
-                fwrite(file, sizeof(buf), 1, img);
+                fwrite(buf, sizeof(buf), 1, img);
                 tracker++;
                 printf("Yes, %i\n", tracker);
             }
@@ -55,9 +55,10 @@ int main(int argc, char *argv[])
         }
         if (tracker > 0)
         {
-            fwrite(file, sizeof(buf), 1, img);
+            fwrite(buf, sizeof(buf), 1, img);
         }
     }
+    fclose(img);
     fclose(file);
 
     printf("Done\n");
