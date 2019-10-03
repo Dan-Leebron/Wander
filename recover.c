@@ -7,7 +7,8 @@ int main(int argc, char *argv[])
 {
     FILE *img = NULL;
     int tracker = 0;
-    uint8_t *buf = malloc(512);
+    uint8_t auf[512];
+    uint8_t *buf = auf;
     char filename[8];
     //checking appropriate amount of command line arguments
     if (argc != 2)
@@ -51,7 +52,7 @@ int main(int argc, char *argv[])
             fwrite(buf, sizeof(buf), 1, img);
         }
     }
-    free(buf);
+    //free(buf);
     fclose(img);
     fclose(file);
 
