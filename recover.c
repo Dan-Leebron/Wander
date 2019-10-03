@@ -7,7 +7,6 @@ int main(int argc, char *argv[])
 {
     FILE *img;
     int tracker = 0;
-    uint8_t buffer[512];
     uint8_t *buf = malloc(512);
     char filename[8];
     //checking appropriate amount of command line arguments
@@ -24,10 +23,6 @@ int main(int argc, char *argv[])
         printf("Whoops!could not open the file\n");
         return 1;
     }
-    fseek(file, 0, SEEK_END);
-    long size = (ftell(file)) / 512;
-    fseek(file, 0, SEEK_SET);
-
 
     while(!feof(file))
     {
@@ -40,7 +35,6 @@ int main(int argc, char *argv[])
                 img = fopen(filename, "w");
                 fwrite(buf, sizeof(buf), 1, img);
                 tracker++;
-                printf("Yes, %i\n", tracker);
             }
             else
             {
@@ -49,7 +43,6 @@ int main(int argc, char *argv[])
                 img = fopen(filename, "w");
                 fwrite(buf, sizeof(buf), 1, img);
                 tracker++;
-                printf("Yes, %i\n", tracker);
             }
 
         }
