@@ -69,12 +69,7 @@ bool load(const char *dictionary)
     }
     while (!EOF)
     {
-        if (EOF)
-        {
-            fclose(file);
-            loadstatus = true;
-            return true;
-        }
+
         fscanf(file, "%s", text);
         wcount++;
         node *n = malloc(sizeof(node));
@@ -96,7 +91,12 @@ bool load(const char *dictionary)
         }
 
     }
-    fclose(file);
+    if (EOF)
+    {
+        fclose(file);
+        loadstatus = true;
+        return true;
+    }
     return false;
 }
 
