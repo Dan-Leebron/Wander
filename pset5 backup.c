@@ -31,7 +31,7 @@ bool check(const char *word)
     int hashed = hash(word);
     for (node *cursor = table[hashed]; cursor != NULL; cursor = cursor -> next)
     {
-        if ((strcasecmp(word, cursor -> word) == 0))
+        if ((strcasecmp(word, cursor -> word) == 1))
         {
             return true;
         }
@@ -52,45 +52,56 @@ unsigned int hash(const char *word)
 		hash = (*word) + (hash << 6) + (hash << 16) - hash;
 	}
 
-	return (hash % N);
+	return hash;
 }
 
 // Loads dictionary into memory, returning true if successful else false
 bool load(const char *dictionary)
 {
-    char text[45];
+    char text[46];
 
 
     FILE *file = fopen(dictionary, "r");
     if (file == NULL)
     {
         printf("Could not open file\n");
-        return false;
+        return 1;
     }
-    while (true)
+    while (!EOF)
     {
 
         fscanf(file, "%s", text);
-        if (feof(file))
-        {
-            fclose(file);
-            loadstatus = true;
-            return true;
-        }
         wcount++;
         node *n = malloc(sizeof(node));
         if (n == NULL)
         {
-            return false;
+            return 1;
         }
         strcpy(n -> word, text);
         n -> next = NULL;
         int i = hash(text);
+        if (table[i] == NULL)
+        {
+            table[i] = n;
+        }
+        else
+        {
+            while (n -> next != NULL)
+            {
+                n -> next = table[i];
+                table[i] = n;
+            }
 
-        n -> next = table[i];
-        table[i] = n;
+        }
 
     }
+    if (EOF)
+    {
+        fclose(file);
+        loadstatus = true;
+        return true;
+    }
+    return false;
 }
 
 // Returns number of words in dictionary if loaded else 0 if not yet loaded
@@ -109,17 +120,18 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful else false
 bool unload(void)
 {
+    {
     for (int i = 0; i < N; i++)
     {
         node *ptr = table[i];
-        while (ptr != NULL)
+        while (ptr -> next != NULL)
         {
             node *tmp = ptr;
             ptr = ptr -> next;
             free(tmp);
         }
-
     }
     return true;
-
+    }
+    return false;
 }
