@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <strings.h>
+#include <ctype.h>
 
 #include "dictionary.h"
 
@@ -46,10 +47,16 @@ unsigned int hash(const char *word)
     unsigned int hash = 0;
 	unsigned int i = 0;
 	int length = strlen(word);
+	int lowerword[length];
+
+	for (int j = 0; j < length; j++)
+	{
+	    lowerword[j] = tolower(word[j]);
+	}
 
 	for (i = 0; i < length; word++, i++)
 	{
-		hash = (*word) + (hash << 6) + (hash << 16) - hash;
+		hash = (*lowerword) + (hash << 6) + (hash << 16) - hash;
 	}
 
 	return (hash % N);
