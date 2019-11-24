@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <table class = "table">
+        <tr>
+            <th>
+                Symbol
+            </th>
+            <th>
+                # of Shares
+            </th>
+            <th>
+                Price Bought/Sold At
+            </th>
+            <th>
+                Buy/Sale
+            </th>
+            <th>
+                Time of Buy/Sale
+            </th>
+        </tr>
+        {% for i in range(tsymbol|length) %}
+        <tr>
+            <td>
+                {{tsymbol[i]}}
+            </td>
+            <td>
+                {{tsharenum[i]}}
+            </td>
+            <td>
+                ${{tprice[i]}}
+            </td>
+            <td>
+                {{tbuysell[i]}}
+            </td>
+            <td>
+                {{ttime[i]}}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

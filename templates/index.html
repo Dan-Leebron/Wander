@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <table class = "table">
+        <tr>
+            <th>
+                Symbol
+            </th>
+            <th>
+                # of Shares
+            </th>
+            <th>
+                Current Price
+            </th>
+            <th>
+                Total Value
+            </th>
+        </tr>
+        {% for i in range(symlist|length) %}
+        <tr>
+            <td>
+                {{symlist[i]}}
+            </td>
+            <td>
+                {{sharenum[i]}}
+            </td>
+            <td>
+                ${{currentp[i]}}
+            </td>
+            <td>
+                ${{totalval[i]}}
+            </td>
+        </tr>
+        {% endfor %}
+
+        <tr>
+            <td>
+                Cash
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                ${{cash}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                ${{total}}
+            </td>
+        </tr>
+    </table>
+
+{% endblock %}
