@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>LOTR Reviews</title>
+
+    </head>
+    <body>
+        <section class="row">
+          <div class="center">
+            <a class="btn btn-outline-primary" href="https://4ceaba92-21f7-44ed-8c1b-f9613210948b-ide.cs50.xyz:8080/index.html">Home</a>
+            <a class="btn btn-outline-primary" href="https://4ceaba92-21f7-44ed-8c1b-f9613210948b-ide.cs50.xyz:8080/movie1.html">The Fellowship of the Ring</a>
+            <a class="btn btn-outline-primary" href="https://4ceaba92-21f7-44ed-8c1b-f9613210948b-ide.cs50.xyz:8080/movie2.html">The Two Towers</a>
+            <a class="btn btn-outline-primary" href="https://4ceaba92-21f7-44ed-8c1b-f9613210948b-ide.cs50.xyz:8080/movie3.html">Return of the King</a>
+            <a class="btn btn-outline-primary" href="https://4ceaba92-21f7-44ed-8c1b-f9613210948b-ide.cs50.xyz:8080/movie4.html">The Hobbit Trilogy</a>
+          </div>
+        </section>
+        <h1 class = "title">My Reviews of the Lord of the Rings Movies</h1>
+        <img class = "centerimage" src = "bluray.jpg">
+        <h3 class = "title">Welcome to my page where I review one of the greatest movie trilogies of all time, the Lord of the Rings. Also the Hobbit.<br>
+        If it has been a while since you have seen the movies (or if you haven't seen them) feel free to click through my reviews/summaries of them above. <br>
+        Once you've done that, select your favorite one below!</h3>
+        <table>
+            <tr>
+                <td>
+                    <button id = "FOTR">Fellowship of the Ring</button>
+                </td>
+                <td>
+                    <button id = "TT">The Two Towers</button>
+                </td>
+                <td>
+                    <button id = "ROTK">Return of the King</button>
+                </td>
+                <td>
+                    <button id = "HOBB">The Hobbit Trilogy</button>
+                </td>
+            </tr>
+        </table>
+        <script>
+            document.querySelector('#HOBB').onclick = function(){
+                alert('Are you sure about that? Maybe you should pick a different movie...');
+            }
+            document.querySelector('#FOTR').onclick = function(){
+                alert('Great Choice! 10/10 movie');
+            }
+            document.querySelector('#TT').onclick = function(){
+                alert('Great Choice! 10/10 movie');
+            }
+            document.querySelector('#ROTK').onclick = function(){
+                alert('Great Choice! 10/10 movie');
+            }
+        </script>
+    </body>
+</html>
