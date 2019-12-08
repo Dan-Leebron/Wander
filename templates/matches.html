@@ -1,0 +1,33 @@
+{% extends "structure.html" %}
+
+{% block title %}
+    My Matches
+{% endblock %}
+
+{% block main %}
+
+<ul class="navbar-nav ml-auto mt-2">
+        <li class="nav-item"><a class="nav-link" style="color: #2d468c; font-weight:bold;"href="/">Back To My Profile</a></li>
+</ul>
+<table class = "table table-striped">
+        <thead>
+            <tr>
+                <th>Matches</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in range(matches|length) %}
+            <tr>
+                <td>{{ matches[i] }}</td>
+                <td>{{ emails[i] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+{% endblock %}
+
