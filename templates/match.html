@@ -1,0 +1,31 @@
+{% extends "structure.html" %}
+
+{% block title %}
+    Get Swiping!
+{% endblock %}
+
+{% block main %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="card">
+  <img src="/static/{{ID}}.jpg" alt="" style="width:100%">
+  <h1 style="color:#2d468c; font-size:xxx-large; padding:5px; font-weight:bold;">{{name}}</h1>
+  <p class="title" style="font-size:large; padding: 5px;">{{bio}}</p>
+  <p>DOB: {{dob}}</p>
+  <p><form action="/match" method="post">
+    <button type="submit" class="match" value="yes" name="match" style="border-style:solid; border-color:#40b3ff; border-width: 5px;">Match</button>
+    <p> </p>
+    <button type="submit" class="match" value="no" name="match" style="border-style:solid; border-color:#40b3ff; border-width: 5px;">Keep Wandering</button>
+</form></p>
+</div>
+
+<ul class="navbar-nav ml-auto mt-2">
+        <li class="nav-item"><a class="nav-link" style="color: #2d468c; font-weight:bold;"href="/">Back To My Profile</a></li>
+</ul>
+
+
+
+
+{% endblock %}
+
